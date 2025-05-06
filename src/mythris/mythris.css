@@ -1,0 +1,85 @@
+.navbar {
+    width: 100%;
+    position: fixed;
+    /* Ensures the navbar stays at the top of the page */
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    /* Keeps the navbar above other content */
+    background: transparent;
+    /* Makes the navbar transparent */
+    padding: 10px 20px;
+    box-shadow: none;
+    /* Removes any shadow */
+    transition: background 0.3s ease;
+    /* Smooth transition if you want to add color on scroll */
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    /* Make the links stand out */
+    font-weight: bold;
+}
+
+.logo {
+    font-size: 24px;
+    color: white;
+    /* Adjust the color for visibility */
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 20px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        display: none;
+        /* Hide links initially */
+    }
+
+    .nav-links.active {
+        display: flex;
+        /* Show links when active */
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .navbar-toggle {
+        
+        display: block;
+        cursor: pointer;
+        color: white;
+        font-size: 24px;
+    }
+
+    .logo img {
+        width: 150px;
+        /* Adjust logo size for smaller screens */
+    }
+}
+
+@media (min-width: 769px) {
+    .navbar-toggle {
+        display: none;
+        /* Hide toggle button on larger screens */
+    }
+}

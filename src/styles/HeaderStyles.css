@@ -1,0 +1,121 @@
+/*.navbar {
+  width: 100%;
+  position: fixed;
+  
+  top: 0;
+  left: 0;
+  z-index: 1000;
+ 
+  background: transparent;
+
+  padding: 10px 20px;
+  box-shadow: none;
+
+  transition: background 0.3s ease;
+ 
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+  
+} */
+.nav-links {
+  padding-top: 20px;
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding-right: 150px;
+  
+  
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  /* Make the links stand out */
+  font-weight: bold;
+  
+  
+}
+
+.logo {
+  font-size: 24px;
+  color: white;
+  padding-left: 20px;
+    
+  /* Adjust the color for visibility */
+}
+
+@media (max-width: 768px) {
+  .navbar {
+      flex-direction: row;
+      align-items: flex-start;
+      padding: 10px 30px;
+  }
+
+  .nav-links {
+      flex-direction: column;
+      width: 100%;
+      display: none;
+      /* Hide links initially */
+  }
+
+  .nav-links.active {
+      display: flex;
+      
+      /* Show links when active */
+  }
+
+  .nav-links li {
+      margin: 10px 0;
+  }
+
+  .navbar-toggle {
+      
+      display: block;
+      cursor: pointer;
+      color: white;
+      font-size: 24px;
+  }
+
+  .logo img {
+      width: 150px;
+      /* Adjust logo size for smaller screens */
+  }
+}
+
+@media (min-width: 769px) {
+  .navbar-toggle {
+      display: none;
+      /* Hide toggle button on larger screens */
+  }
+}
+
+/*--sticky css--*/
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+}
+
+.header-scrolled {
+  background-color: #093150; /* Change this color to whatever you prefer */
+}
+
+.navbar .logo img {
+  height: 70px;
+}
+
+.navbar-toggle {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+
+.nav-links.active {
+  display: block;
+}
+
+.Nav-item {
+  margin: 0;
+}
+
