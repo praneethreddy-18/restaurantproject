@@ -1,18 +1,28 @@
-# Stage 1: Build the app
-FROM node:18-alpine 
+# ---------- Stage 1: Install dependencies ----------
+FROM node:18-alpine AS deps
 
-WORKDIR /usr/src/app
+WORKDIR /app
 
-# Copy package.json and package-lock.json to install dependencies
+# Install only production dependencies
 COPY package*.json ./
+RUN npm ci --only=production
 
-# Install dependencies
-RUN npm install
+# ---------- Stage 2: Copy app and run ----------
+FROM node:18-alpine
 
-# Copy the rest of the app
+WORKDIR /app
+
+# Copy only the built node_modules from deps stage
+COPY --from=deps /app/node_modules ./node_modules
+
+# Copy rest of the application
 COPY . .
-# Expose the port
+
+# Set environment variable for production
+ENV NODE_ENV=production
+
+# Expose the app port
 EXPOSE 3000
 
 # Start the app
-CMD ["npm", "start"]
+CMD ["node", "server.js"]
